@@ -14,6 +14,7 @@ public class MainPage {
     private ElementsCollection globalFeedTitle = $$(By.xpath("//p[text()='Global feed']"));
     private SelenideElement dashboardMenu = $(By.xpath("//a[text()=' Your dashboard ']"));
     private SelenideElement postUpdateLink = $(By.xpath("//a[text()='Post update']"));
+    private SelenideElement logoutLink = $(By.partialLinkText("Logout "));
 
     public int getTitleQuantity() {
         globalFeedTitle.get(1).shouldBe(visible);
@@ -26,5 +27,9 @@ public class MainPage {
 
     public void goToPostUpdatePage() {
         postUpdateLink.click();
+    }
+
+    public void logout() {
+        logoutLink.click();
     }
 }

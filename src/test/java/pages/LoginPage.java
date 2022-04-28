@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import models.LoginModel;
 import org.openqa.selenium.By;
 import staticdata.WebUrls;
 
@@ -35,6 +36,13 @@ public class LoginPage {
         loginButton.shouldBe(enabled);
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
+        loginButton.click();
+    }
+
+    public void sendLoginDataModel (LoginModel loginModel) {
+        loginButton.shouldBe(enabled);
+        emailInput.sendKeys(loginModel.getEmail());
+        passwordInput.sendKeys(loginModel.getPassword());
         loginButton.click();
     }
 }
